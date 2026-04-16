@@ -4,7 +4,7 @@ import "./Auth.css";
 import ThemeToggle from "./ThemeToggle";
 
 // ⚠️  Backend base URL — must match your backend
-const API_BASE = "http://localhost:9000";
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:9000";
 
 function Auth({ mode, onNavigate, onLogin, theme, toggleTheme }) {
   const [isLogin, setIsLogin]     = useState(mode === "login");
