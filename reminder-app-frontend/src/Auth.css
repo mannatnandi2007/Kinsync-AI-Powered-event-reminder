@@ -1,0 +1,306 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   KinSync — Auth.css
+───────────────────────────────────────────────────────────────────────────── */
+
+.auth_page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(ellipse 75% 60% at 10% 5%,  var(--bg-grad1) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 45% at 88% 95%, var(--bg-grad2) 0%, transparent 55%),
+        var(--bg-page);
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 400ms ease;
+}
+
+/* Floating orbs */
+.auth_orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(90px);
+    opacity: 0.15;
+}
+
+.auth_orb.orb1 {
+    width: 350px;
+    height: 350px;
+    background: var(--rose);
+    top: -100px;
+    left: -100px;
+    animation: floatOrb 9s ease-in-out infinite alternate;
+}
+
+.auth_orb.orb2 {
+    width: 280px;
+    height: 280px;
+    background: var(--maroon-mid);
+    bottom: -80px;
+    right: -60px;
+    animation: floatOrb 11s ease-in-out infinite alternate-reverse;
+}
+
+/* Back button */
+.auth_back {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color var(--transition);
+    z-index: 10;
+}
+
+.auth_back:hover { color: var(--pink-soft); }
+
+/* Card */
+.auth_card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.7);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 420px;
+    animation: riseIn 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo */
+.auth_logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--white), var(--pink-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.auth_logo_icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--maroon));
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+    box-shadow: 0 0 14px rgba(192, 39, 74, 0.5);
+    flex-shrink: 0;
+    -webkit-text-fill-color: var(--white);
+}
+
+.auth_title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.auth_sub {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Tabs */
+.auth_tabs {
+    display: flex;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    padding: 0.22rem;
+    margin-bottom: 1.5rem;
+    gap: 0.2rem;
+}
+
+.auth_tab {
+    flex: 1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    border: none;
+    border-radius: calc(var(--radius-sm) - 2px);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.auth_tab.active {
+    background: linear-gradient(135deg, var(--rose), var(--maroon));
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(192, 39, 74, 0.35);
+}
+
+/* Form */
+.auth_form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.auth_field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.auth_label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.auth_field input {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.auth_field input::placeholder { color: var(--muted); }
+
+.auth_field input:focus {
+    outline: none;
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px rgba(192, 39, 74, 0.2);
+}
+
+.auth_pass_row {
+    position: relative;
+}
+
+.auth_pass_row input {
+    padding-right: 2.8rem;
+}
+
+.auth_eye {
+    position: absolute;
+    right: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.2rem;
+    color: var(--text-muted);
+    transition: color var(--transition);
+}
+
+.auth_eye:hover { color: var(--pink-soft); }
+
+.auth_error {
+    font-size: 0.82rem;
+    color: var(--pink-soft);
+    background: rgba(192, 39, 74, 0.1);
+    border: 1px solid rgba(192, 39, 74, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.75rem;
+}
+
+.auth_submit {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--rose), var(--maroon));
+    color: var(--white);
+    box-shadow: 0 6px 20px rgba(192, 39, 74, 0.4);
+    transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin-top: 0.25rem;
+}
+
+.auth_submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(192, 39, 74, 0.55);
+    filter: brightness(1.08);
+}
+
+.auth_submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.auth_spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+.auth_switch {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+}
+
+.auth_switch button {
+    background: transparent;
+    border: none;
+    color: var(--pink-soft);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition);
+}
+
+.auth_switch button:hover { color: var(--white); }
+
+@keyframes floatOrb {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(25px, 18px) scale(1.06); }
+}
+
+/* ── Auth top bar with back + theme toggle ── */
+.auth_top_bar {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.auth_top_bar .auth_back {
+    position: static;
+}
