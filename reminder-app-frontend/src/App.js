@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ThemeToggle from "./ThemeToggle";
 
-//   Backend base URL — update if your backend runs on a different port/host
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:9000";
+const API_BASE = process.env.REACT_APP_API_URL || "https://kinsyncremind.onrender.com";
 
 // Reads the JWT token saved at login and adds it to every request
 const authHeaders = () => {
